@@ -14,10 +14,15 @@ We have observed that the public does not have a good understanding of what happ
 
 ## Server pair experiment
 
-We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks.
-* In the directory `server-pair`
+We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks. This experiment is the `server-pair` directory.
+
+### To run
 * Run `pip install -r requirements.txt`
 * And then start two servers:
   * `flask --app a run -p 5001`
   * `flask --app b run -p 5002`
+
+### For code quality
+* To lint, run `flake8`
+* To format, run `black .`
 
