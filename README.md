@@ -11,3 +11,13 @@ We have observed that the public does not have a good understanding of what happ
 * [Data Exchange README](https://docs.google.com/document/d/1IfLms6VMIaOpkgdy0_DiDTQXpntpgtQZgoTyKUExCTw/)
 * [Project folder on Google Drive](https://drive.google.com/drive/folders/1Xv6QOYEFwhMv2SfVHi9Rzl4XASAvnbXc)
 * [Agile project board](https://github.com/orgs/GSA-TTS/projects/31/)
+
+## Server pair experiment
+
+We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks.
+* In the directory `server-pair`
+* Run `pip install -r requirements.txt`
+* And then start two servers:
+  * `flask --app a run -p 5001`
+  * `flask --app b run -p 5002`
+
