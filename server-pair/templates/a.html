@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <script>
+
+        function getData() {
+            let birdField = document.getElementById("bird");
+            fetch("http://localhost:5002/data")
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    let birdData = data;
+                    birdField.value = birdData.bird;
+                })
+        }
+
+        function doDownload() {
+            let link = document.createElement('a')
+            let text = document.getElementById("bird").value;
+            let file = new File([text], 'bird.txt', {
+                type: 'text/plain',
+            })
+            let url = URL.createObjectURL(file)
+
+            link.href = url
+            link.download = file.name
+            document.body.appendChild(link)
+            link.click()
+
+            document.body.removeChild(link)
+            window.URL.revokeObjectURL(url)
+        }
+
+    </script>
+    <h1>Agency A</h1>
+    <p>
+        <a href="http://localhost:5002">Agency B</a> |
+        <a href="http://localhost:5002/data">Agency B JSON</a>
+    </p>
+    <p>
+        <a href="http://localhost:5002/static/image.jpg" download="image.jpg">
+            Fetch image across orgin
+        </a>
+    </p>
+    <form>
+        <fieldset>
+            <legend>Fill out this form:</legend>
+            <label for="bird">Type of bird according to Agency B</label>
+            <input id="bird" name="bird" />
+            <a href="#" onclick="getData()">Fetch from Agency B</a>
+            <br><a href="#" onclick="doDownload()">Download</a>
+        </fieldset>
+    </form>
+</html>
