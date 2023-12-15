@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <script>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/agency.css" />
+        <script>
 
-        function getData() {
-            let birdField = document.getElementById("bird");
-            fetch("http://localhost:5002/data")
-                .then((response) => {
-                    return response.json();
+            function getData() {
+                let birdField = document.getElementById("bird");
+                fetch("http://localhost:5002/data")
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data) => {
+                        let birdData = data;
+                        let dlButton = document.getElementById("download");
+                        birdField.value = birdData.bird;
+                        dlButton.classList.remove("inactive");
+                    })
+            }
+
+            function doDownload() {
+                let link = document.createElement("a");
+                let text = document.getElementById("bird").value;
+                let file = new File([text], "bird.txt", {
+                    type: "text/plain",
                 })
-                .then((data) => {
-                    let birdData = data;
-                    birdField.value = birdData.bird;
-                })
-        }
+                let url = URL.createObjectURL(file);
 
-        function doDownload() {
-            let link = document.createElement('a')
-            let text = document.getElementById("bird").value;
-            let file = new File([text], 'bird.txt', {
-                type: 'text/plain',
-            })
-            let url = URL.createObjectURL(file)
+                link.href = url;
+                link.download = file.name;
+                document.body.appendChild(link);
+                link.click();
 
-            link.href = url
-            link.download = file.name
-            document.body.appendChild(link)
-            link.click()
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+            }
 
-            document.body.removeChild(link)
-            window.URL.revokeObjectURL(url)
-        }
-
-    </script>
-    <h1>Agency A</h1>
-    <p>
-        <a href="http://localhost:5002">Agency B</a> |
-        <a href="http://localhost:5002/data">Agency B JSON</a>
-    </p>
-    <p>
-        <a href="http://localhost:5002/static/image.jpg" download="image.jpg">
-            Fetch image across orgin
-        </a>
-    </p>
-    <form>
-        <fieldset>
-            <legend>Fill out this form:</legend>
-            <label for="bird">Type of bird according to Agency B</label>
-            <input id="bird" name="bird" />
-            <a href="#" onclick="getData()">Fetch from Agency B</a>
-            <br><a href="#" onclick="doDownload()">Download</a>
-        </fieldset>
-    </form>
+        </script>
+    </head>
+    <body>
+        <header class="a">
+            <h1>Agency A</h1>
+            <p>We are experimenting with ways to let our users gather information from <a href="http://localhost:5002">Agency B</a></p>
+        </header>
+        <section>
+            <h2>Experiment #1</h2>
+            <a href="http://localhost:5002/static/image.jpg" download="image.jpg">
+                Fetch image across orgin
+            </a>
+        </section>
+        <section>
+            <h2>Experiment #2</h2>
+            <form>
+                <fieldset>
+                    <legend>Fill out this form</legend>
+                    <label for="bird">Bird:</label><br>
+                    <input id="bird" name="bird" />
+                    <a href="#" class="button" onclick="getData()">Fetch from Agency B</a>
+                    <br><br><a href="#" class="button inactive" id="download" onclick="doDownload()">Download ⇓</a>
+                </fieldset>
+            </form>
+            Powered by <a href="http://localhost:5002/data">Agency B JSON</a>
+        </section>
+    </body>
 </html>

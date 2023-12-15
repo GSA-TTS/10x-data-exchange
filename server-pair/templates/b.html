@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <h1>Agency B</h1>
-    <p>
-        <a href="http://localhost:5001">Agency A</a>
-    </p>
-    <p>
-        <a href="static/image.jpg" download="image.jpg">
-            Fetch image within same origin
-        </a>
-    </p>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/agency.css" />
+    </head>
+    <body>
+        <header class="b">
+            <h1>Agency B</h1>
+            <p>We have information that users of <a href="http://localhost:5001">Agency A</a> need
+        </header>
+        <section>
+            <h2>Experiment #1</h2>
+            <a href="static/image.jpg" download="image.jpg">
+                Fetch image within same origin
+            </a>
+        </section>
+    </body>
 </html>

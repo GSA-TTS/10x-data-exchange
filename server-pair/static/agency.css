@@ -1,0 +1,74 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    color: #4b4b4d;
+    font-family: "Source Sans Pro Web", Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+}
+header, section {
+    padding: 20px 20vw 30px 20vw;
+}
+h1 {
+    font-family: "Merriweather Web", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+h2 {
+    color: #11385b;
+}
+header, header a, a.button {
+    color: white;
+}
+header p {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+    margin: 0 0 1rem;
+}
+header.a {
+    background: #2c7cc7;
+}
+header.b {
+    background: #d83933;
+}
+a.button {
+    background-color: #005ea2;
+    font-size: 1rem!important;
+    appearance: none;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.50rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+}
+a.inactive {
+    background-color: silver;
+}
+input {
+    height: 1.8rem;
+}
+
+@font-face {
+    font-family: "Source Sans Pro Web";
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: url(sourcesanspro-regular-webfont.woff2)
+}
+@font-face {
+    font-family: "Source Sans Pro Web";
+    font-style: normal;
+    font-weight: 700;
+    font-display: fallback;
+    src: url(sourcesanspro-bold-webfont.woff2)
+}
+@font-face {
+    font-family: "Merriweather Web";
+    font-style: normal;
+    font-weight: 700;
+    font-display: fallback;
+    src: url(Latin-Merriweather-Bold.woff2)
+}
