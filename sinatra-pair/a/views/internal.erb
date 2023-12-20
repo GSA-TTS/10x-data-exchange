@@ -1,0 +1,7 @@
+<h1>Internal</h1>
+
+<% if session[:email] %>
+    <p><%= session[:email] %> you may fill out this form:</p>
+<% else %>
+    <p>You are not allowed on this page</p>
+<% end %>

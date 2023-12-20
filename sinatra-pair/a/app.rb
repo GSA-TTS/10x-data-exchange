@@ -60,6 +60,12 @@ class RelyingParty < Sinatra::Base
     end
   end
 
+  get '/internal/?' do
+    erb :internal, locals: {
+      email: session[:email]
+    }
+  end
+
   get '/login_get/?' do
     puts 'Logging in via GET'
     request = OneLogin::RubySaml::Authrequest.new
