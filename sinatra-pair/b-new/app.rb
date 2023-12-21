@@ -66,6 +66,16 @@ module LoginGov::OidcSinatra
       [500, erb(:errors, locals: { error: e.inspect })]
     end
 
+    get '/data' do
+      headers 'Access-Control-Allow-Origin' => 'http://localhost:4567'
+      content_type :json
+      if session[:email]
+        { login: true, email: session[:email], bird: "swan" }.to_json
+      else
+        { login: false }.to_json
+      end
+    end
+
     get '/auth/request' do
       simulate_csp_issue_if_selected(session: session, simulate_csp: params[:simulate_csp])
 
