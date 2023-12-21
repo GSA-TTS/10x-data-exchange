@@ -26,3 +26,17 @@ We are trying to learn if one of our ideas for data exchange is allowable in bro
 * To lint, run `flake8`
 * To format, run `black .`
 
+# Sinatra pair experiment
+
+Experimenting with Login.gov authentication by copying two sandbox apps,[identity-saml-sinatra](https://github.com/18F/identity-saml-sinatra) and [identity-oidc-sinatra](https://github.com/18F/identity-oidc-sinatra), and connecting them to each other. This experiment is the `sinatra-pair` directory.
+
+### To run
+
+* You will need to run three servers:
+  1. Login's [identity-idp](https://github.com/18F/identity-idp) project at (localhost:3000)[http://localhost:3000/]. Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md), 
+  2. The app in this repo's `a-saml` directory at [localhost:4567](http://localhost:4567/)
+  3. The app in this repo's `b-oidc` directory at [localhost:9292](http://localhost:9292/)
+* All three are started with
+  * `make setup` the first time you run each, or after changes
+  * `make run`
+
