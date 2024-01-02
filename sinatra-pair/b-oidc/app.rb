@@ -66,6 +66,12 @@ module LoginGov::OidcSinatra
       [500, erb(:errors, locals: { error: e.inspect })]
     end
 
+    get '/internal/?' do
+      erb :internal, locals: {
+        email: session[:email]
+      }
+    end
+
     get '/data' do
       headers 'Access-Control-Allow-Origin' => 'http://localhost:4567'
       content_type :json
