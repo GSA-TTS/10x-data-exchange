@@ -1,11 +1,14 @@
 <h1>Agency A Internal</h1>
-
+<style>
+  html, body {padding: 10px;}
+</style>
 <% if session[:email] %>
 
     <script>
 
         function getData() {
             let birdField = document.getElementById("bird");
+            let loginField = document.getElementById("login");
             fetch("http://localhost:9292/data")
                 .then((response) => {
                     return response.json();
@@ -14,6 +17,7 @@
                     let birdData = data;
                     let dlButton = document.getElementById("download");
                     birdField.value = birdData.bird;
+                    loginField.value = birdData.login;
                     dlButton.classList.remove("inactive");
                 })
         }
@@ -43,7 +47,9 @@
         <fieldset>
             <legend>Fill out this form</legend>
             <label for="bird">Bird:</label><br>
-            <input id="bird" name="bird" />
+            <input id="bird" name="bird" /><br><br>
+            <label for="login">Logged in?</label><br>
+            <input id="login" name="login"/><br><br>
             <a href="#" class="button" onclick="getData()">Fetch from Agency B</a>
             <br><br><a href="#" class="button inactive" id="download" onclick="doDownload()">Download ⇓</a>
         </fieldset>
