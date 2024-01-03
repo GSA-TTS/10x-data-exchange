@@ -40,3 +40,4 @@ Experimenting with Login.gov authentication by copying two sandbox apps,[identit
   * `make setup` the first time you run each, or after changes
   * `make run`
 
+Visit [Agency A's internal page](http://localhost:4567/internal/) to run the experiment

@@ -116,7 +116,7 @@ module LoginGov::OidcSinatra
           session[:userinfo] = userinfo_response
           session[:email] = session[:userinfo][:email]
 
-          redirect to('/')
+          redirect to('/internal/?redirect=http://localhost:4567/internal')
         end
       else
         error = params[:error] || 'missing callback param: code'
