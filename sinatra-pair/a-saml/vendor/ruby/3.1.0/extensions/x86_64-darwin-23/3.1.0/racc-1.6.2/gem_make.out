@@ -1,0 +1,18 @@
+current directory: /Users/johnsskinner/Projects/10x-data-exchange/sinatra-pair/a/vendor/ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+/Users/johnsskinner/.rvm/rubies/ruby-3.1.4/bin/ruby -I /Users/johnsskinner/.rvm/rubies/ruby-3.1.4/lib/ruby/3.1.0 extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/johnsskinner/Projects/10x-data-exchange/sinatra-pair/a/vendor/ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231219-14538-ookmxt sitelibdir\=./.gem.20231219-14538-ookmxt clean
+
+current directory: /Users/johnsskinner/Projects/10x-data-exchange/sinatra-pair/a/vendor/ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231219-14538-ookmxt sitelibdir\=./.gem.20231219-14538-ookmxt
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.1'
+
+current directory: /Users/johnsskinner/Projects/10x-data-exchange/sinatra-pair/a/vendor/ruby/3.1.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231219-14538-ookmxt sitelibdir\=./.gem.20231219-14538-ookmxt install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20231219-14538-ookmxt/racc

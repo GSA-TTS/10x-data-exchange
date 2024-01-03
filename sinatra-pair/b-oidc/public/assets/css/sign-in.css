@@ -1,0 +1,50 @@
+.sign-in-type-wrap {
+  margin-right: 25px;
+}
+.sign-in-wrap {
+  padding-top: 10px;
+  clear: both;
+}
+
+.sign-in-bttn svg {
+  margin-bottom: -2px;
+  margin-right: 3px;
+  height: 1rem;
+}
+
+.usa-nav__secondary {
+  padding-bottom: 10px;
+}
+
+.details-popup {
+  position: absolute;
+  margin-top: 5px;
+  display: block;
+  right: 10px;
+}
+
+.details-popup summary {
+  text-align: right;
+}
+
+.details-popup[open] {
+  width: 120%;
+  background: white;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 0 10px #fff;
+  z-index: 1;
+}
+
+.details-popup .usa-select {
+  width: 70%;
+}
+
+@media all and (max-width: 63.99em) {
+  .details-popup[open] {
+    width: initial;
+    right: 0;
+    margin: 5px;
+  }
+}
