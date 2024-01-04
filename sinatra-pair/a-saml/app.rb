@@ -121,7 +121,7 @@ class RelyingParty < Sinatra::Base
       erb :"agency/#{agency}/success", layout: false
     else
       session[:login] = 'ok'
-      redirect to('/')
+      redirect to('/internal')
     end
   end
 
