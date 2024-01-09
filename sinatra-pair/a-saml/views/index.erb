@@ -34,7 +34,7 @@
   <% end %>
   <div class="usa-navbar">
     <div class="usa-logo" id="extended-logo">
-      <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">SAML Sinatra Example</a></em>
+      <em class="usa-logo__text"><a href="/" title="Home" aria-label="Home">DogJobs.gov</a></em>
     </div>
     <button class="usa-menu-btn">Menu</button>
   </div>
@@ -85,7 +85,7 @@
                 </button>
               </div>
               <div class="clearfix">
-                <details class="details-popup display-inline-block float-right" open>
+                <details class="details-popup display-inline-block float-right">
                   <summary class="float-right">Options</summary>
 
                   <label class="usa-label" for="aal">
@@ -183,7 +183,7 @@
   </nav>
 </header>
 <main id="main-content">
-  <section class="usa-hero">
+  <section class="usa-hero" style="background-image: url('/assets/img/hero.png')">
     <div class="grid-container">
       <div class="usa-hero__callout">
         <% if session[:email] %>
@@ -194,12 +194,12 @@
           <p>When finished, use the previous 'Log out' button to sign out.</p>
         <% else %>
           <h1 class="usa-hero__heading">
-            <span class="usa-hero__heading--alt">Let's get started!</span>
-            It's easy to make an account
-          </h1><p>Setting it up takes just a few, short steps.</p>
-          <form action="/login" method="POST">
+            <span class="usa-hero__heading--alt">Find a job with the U.S. Federal Government</span>
+            if you are a dog
+          </h1><p>Over 5,000 roles for dogs in the federal workforce</p>
+          <form action="#job-listings" method="get">
             <button type="submit"  class="usa-button">
-              Create an account
+              View job listings
             </button>
           </form>
         <% end %>
@@ -228,10 +228,11 @@
   <section class="grid-container usa-section">
     <div class="grid-row grid-gap">
       <div class="tablet:grid-col-4">
-        <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">We are with you every step of the way</h2>
+        <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0"><a id="job-listings">Job listings</a></h2>
       </div>
       <div class="tablet:grid-col-8 usa-prose">
-        <p>We hope your visit will help you understand the opportunities and potential rewards that are available to you. We created this website to help you gain a better understanding of these concepts. Most importantly, we hope you see the value of working with us to pursue your goals. We're here to help educate you about the basic concepts, to help you learn more about who we are, and to give you fast, easy access to opportunities.</p>
+        <h3>Dog who rescues cats</h3>
+        <p>Dog needed to rescue cats from unusual locations that human rescuers cannot easily reach. Prior experience needed. On-site work only; travel required.<br><a href="internal">Click here to apply</a>.</p>
       </div>
     </div>
   </section>
@@ -288,7 +289,7 @@
       <div class="grid-row grid-gap">
         <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
           <div class="mobile-lg:grid-col-auto">
-            <h3 class="usa-footer__logo-heading">SAML Sinatra Example</h3>
+            <h3 class="usa-footer__logo-heading">Dog Jobs dot gov</h3>
             <a class="usa-footer__primary-link source-code-link" href="https://github.com/18F/identity-saml-sinatra">
               <div>
                 <img src="/assets/img/GitHub-Mark-120px-plus.png" alt="GitHub Logo" title="GitHub Logo" width=60/>
