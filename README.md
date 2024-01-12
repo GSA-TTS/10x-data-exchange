@@ -34,8 +34,7 @@ Experimenting with Login.gov authentication by copying two sandbox apps,[identit
 
 You will need to run three servers:
 
-  1. Login's [identity-idp](https://github.com/18F/identity-idp) project at [localhost:3000](http://localhost:3000/). Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md).
-    * modify the file config/service_providers.localdev.yml to contain... 
+  1. Login's [identity-idp](https://github.com/18F/identity-idp) project at [localhost:3000](http://localhost:3000/). Here's [how to run it](#setup-of-identity-idp).
   2. The app in this repo's `a-saml` directory at [localhost:4567](http://localhost:4567/)
   3. The app in this repo's `b-oidc` directory at [localhost:9292](http://localhost:9292/)
 
@@ -44,4 +43,17 @@ All three are started with:
   * `make setup` the first time you run each, or after changes
   * `make run`
 
-Visit [Agency A's internal page](http://localhost:4567/internal/) to run the experiment
+  Visit [Agency A's internal page](http://localhost:4567/internal/) to run the experiment
+
+#### Setup of identity-idp
+
+Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md).
+
+Modify the file `config/service_providers.localdev.yml` to contain a URI that Login should expect from the a-saml app. Under the section `urn:gov:gsa:openidconnect:sp:sinatra` add these redirect URIs:
+```
+- 'http://localhost:9292/auth/result?redirect=http%3A%2F%2Flocalhost%3A4567%2Finternal%2F&linktext=DogJobs.gov'
+- 'http://localhost:9292/auth/result?redirect=http://localhost:4567/internal/&linktext=DogJobs.gov'
+```
+You will have to run (or re-run) `make setup` after modifying this file
+
+
