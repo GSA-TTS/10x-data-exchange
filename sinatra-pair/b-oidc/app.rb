@@ -116,7 +116,7 @@ module LoginGov::OidcSinatra
           session[:userinfo] = userinfo_response
           session[:email] = session[:userinfo][:email]
 
-          redirect to('/internal/?redirect=http://localhost:4567/internal')
+          redirect to('/internal/?redirect='+params[:redirect].to_s+'&linktext='+params[:linktext].to_s)
         end
       else
         error = params[:error] || 'missing callback param: code'
@@ -168,7 +168,7 @@ module LoginGov::OidcSinatra
         response_type: 'code',
         acr_values: acr_values(ial: ial, aal: aal),
         scope: scopes_for(ial),
-        redirect_uri: File.join(config.redirect_uri, '/auth/result'),
+        redirect_uri: File.join(config.redirect_uri, "/auth/result?redirect=#{params[:redirect]}&linktext=#{params[:linktext]}"),
         state: random_value,
         nonce: random_value,
         prompt: 'select_account',
