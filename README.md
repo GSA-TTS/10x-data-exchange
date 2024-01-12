@@ -43,11 +43,13 @@ All three are started with:
 
 Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md) to setup Login.gov's identity-idp app.
 
-Modify the file `config/service_providers.localdev.yml` to contain a URI that Login should expect from the a-saml app, which makes the "Return to" link in the b-oidc app work. Under the section `urn:gov:gsa:openidconnect:sp:sinatra` add these redirect URIs:
+Modify the file `config/service_providers.localdev.yml` to contain a URI that Login should expect from the a-saml app, which makes the "Return to" link in the b-oidc app work. Add these two lines:
 ```
 - 'http://localhost:9292/auth/result?redirect=http%3A%2F%2Flocalhost%3A4567%2Finternal%2F&linktext=DogJobs.gov'
 - 'http://localhost:9292/auth/result?redirect=http://localhost:4567/internal/&linktext=DogJobs.gov'
 ```
+In the part of the file configuring `urn:gov:gsa:openidconnect:sp:sinatra`
+
 You will have to run (or re-run) `make setup` after modifying this file.
 
 The purpose of this is to allow-list params the Sinatra pair experiment needs. This error indicates either the allow-listing or the params are incorrect:
