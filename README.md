@@ -49,7 +49,7 @@ Redirect uri redirect_uri does not match registered redirect_uri
 
 #### Mobile device testing
 
-To test the Sinatra pair experiment with a mobile device, you will need [these instructions] for broadcasting Login.gov over your home or office WiFi. Adapt the technique to broadcast the other two servers, `a-saml` and `b-oidc`.
+To test the Sinatra pair experiment with a mobile device, you will need [these instructions](https://github.com/18F/identity-idp/blob/main/docs/mobile.md#debugging-with-the-desktop-browser) for broadcasting Login.gov over your home or office WiFi. Adapt the technique to broadcast the other two servers, `a-saml` and `b-oidc`.
 
 ## Old server pair experiment
 
