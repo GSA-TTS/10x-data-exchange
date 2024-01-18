@@ -10,11 +10,11 @@
 <% if session[:email] %>
 
     You are applying as <%= session[:email] %>
-    <h2 style="color: #005ea2;">IRS form K-9 required</h2>
+    <h2 style="color: #005ea2;">IRS form K-9 required <span id="green-check">✅</span></h2>
     <p>
         To apply for this job, you must upload IRS form K-9.<br>
         You can get it from the IRS with this button:</p>
-    <p/>
+    </p>
 
     <form action="http://localhost:9292/internal/" method="get">
     <input name="redirect" type="hidden" value="http://localhost:4567/internal/" />
@@ -53,14 +53,12 @@
     <script>
 
         const queryString = window.location.search;
-        console.log(queryString);
         const urlParams = new URLSearchParams(queryString);
         const downloaded = urlParams.get('downloaded')
-        console.log(downloaded);
 
         if (downloaded == "true") {
             document.getElementById("fetch").style.backgroundColor = "silver";
-            console.log("yeah!");
+            document.getElementById("green-check").style.visibility = "visible";
         }
 
 

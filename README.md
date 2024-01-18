@@ -56,3 +56,7 @@ The purpose of this is to allow-list params the Sinatra pair experiment needs. T
 ```
 Redirect uri redirect_uri does not match registered redirect_uri
 ```
+
+**Optional:** to make Login's handoff screens look right, replace placeholder names in the above file.
+* Replace `Test SAML SP` with `DogJobs.gov`
+* Replace `Example Sinatra App` with `IRS Dog Services`
