@@ -8,23 +8,26 @@ We have observed that the public does not have a good understanding of what happ
 
 ### Links to understand the context
 
-* [Data Exchange README](https://docs.google.com/document/d/1IfLms6VMIaOpkgdy0_DiDTQXpntpgtQZgoTyKUExCTw/)
-* [Project folder on Google Drive](https://drive.google.com/drive/folders/1Xv6QOYEFwhMv2SfVHi9Rzl4XASAvnbXc)
-* [Agile project board](https://github.com/orgs/GSA-TTS/projects/31/)
+- [Data Exchange README](https://docs.google.com/document/d/1IfLms6VMIaOpkgdy0_DiDTQXpntpgtQZgoTyKUExCTw/)
+- [Project folder on Google Drive](https://drive.google.com/drive/folders/1Xv6QOYEFwhMv2SfVHi9Rzl4XASAvnbXc)
+- [Agile project board](https://github.com/orgs/GSA-TTS/projects/31/)
 
 ## Server pair experiment
 
 We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks. This experiment is the `server-pair` directory.
 
 ### To run
-* Run `pip install -r requirements.txt`
-* And then start two servers:
-  * `flask --app a run -p 5001`
-  * `flask --app b run -p 5002`
+
+- Note: you want want to use a python virtual environment.
+- Run `pip install -r server-pair/requirements.txt`
+- And then start two servers:
+  - `flask --app server-pair/a run -p 5001`
+  - `flask --app server-pair/b run -p 5002`
 
 ### For code quality
-* To lint, run `flake8`
-* To format, run `black .`
+
+- To lint, run `flake8`
+- To format, run `black .`
 
 ## Sinatra pair experiment
 
@@ -34,13 +37,13 @@ Experimenting with Login.gov authentication by copying two sandbox apps,[identit
 
 You will need to run three servers:
 
-  1. Login's [identity-idp](https://github.com/18F/identity-idp) project at [localhost:3000](http://localhost:3000/). Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md).
-  2. The app in this repo's `a-saml` directory at [localhost:4567](http://localhost:4567/)
-  3. The app in this repo's `b-oidc` directory at [localhost:9292](http://localhost:9292/)
+1. Login's [identity-idp](https://github.com/18F/identity-idp) project at [localhost:3000](http://localhost:3000/). Use these [local development instructions](https://github.com/18F/identity-idp/blob/main/docs/local-development.md).
+2. The app in this repo's `a-saml` directory at [localhost:4567](http://localhost:4567/)
+3. The app in this repo's `b-oidc` directory at [localhost:9292](http://localhost:9292/)
 
-All three are started with:
+All three are started (from their respective root folders) with:
 
-  * `make setup` the first time you run each, or after changes
-  * `make run`
+- `make setup` the first time you run each, or after changes
+- `make run`
 
 Visit [Agency A's internal page](http://localhost:4567/internal/) to run the experiment
