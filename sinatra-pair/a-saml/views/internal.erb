@@ -9,7 +9,58 @@
 <h1>Apply for job</h1>
 <% if session[:email] %>
 
+    You are applying as <%= session[:email] %>
+    <h2 style="color: #005ea2;">IRS form K-9 required <span id="green-check">✅</span></h2>
+    <p>
+        To apply for this job, you must upload IRS form K-9.<br>
+        You can get it from the IRS with this button:</p>
+    </p>
+
+    <form action="http://localhost:9292/internal/" method="get">
+    <input name="redirect" type="hidden" value="http://localhost:4567/internal/" />
+    <input name="linktext" type="hidden" value="DogJobs.gov" />
+    <button type="submit" class="usa-button" id="fetch">
+        Go Fetch
+    </button>
+    </form>
+
+    <p style="margin-top: 50px;">
+        After you have form K-9, upload it here:<br>
+        <input type="file" id="k9" name="k9">
+    </p>
+    <hr>
+
+    <details class="details-popup display-inline-block float-right">
+        <summary class="float-right">Prior experiments</summary>
+
+        <h2>Experiment: fill form via JSON</h2>
+        <p><%= session[:email] %> you may fill out this form:</p>
+        <p>We are experimenting with ways to let our users gather information from <a href="http://localhost:9292">Agency B</a></p>
+        <form>
+            <fieldset>
+                <legend>Fill out this form</legend>
+                <label for="bird">Bird:</label><br>
+                <input id="bird" name="bird" /><br><br>
+                <label for="login">Logged in?</label><br>
+                <input id="login" name="login"/><br><br>
+                <a href="#" class="button" onclick="getData()">Fetch from Agency B</a>
+                <br><br><a href="#" class="button inactive" id="download" onclick="doDownload()">Download ⇓</a>
+            </fieldset>
+        </form>
+        Powered by <a href="http://localhost:9292/data">Agency B JSON</a>
+    </details>
+
     <script>
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const downloaded = urlParams.get('downloaded')
+
+        if (downloaded == "true") {
+            document.getElementById("fetch").style.backgroundColor = "silver";
+            document.getElementById("green-check").style.visibility = "visible";
+        }
+
 
         function getData() {
             let birdField = document.getElementById("bird");
@@ -46,46 +97,6 @@
 
     </script>
 
-    You are applying as <%= session[:email] %>
-    <h2 style="color: #005ea2;">IRS form K-9 required</h2>
-    <p>
-        To apply for this job, you must upload IRS form K-9.<br>
-        You can get it from the IRS with this button:</p>
-    <p/>
-
-    <form action="http://localhost:9292/internal/" method="get">
-    <input name="redirect" type="hidden" value="http://localhost:4567/internal/" />
-    <input name="linktext" type="hidden" value="DogJobs.gov" />
-    <button type="submit"  class="usa-button">
-        Go Fetch
-    </button>
-    </form>
-
-    <p style="margin-top: 50px;">
-        After you have form K-9, upload it here:<br>
-        <input type="file" id="k9" name="k9">
-    </p>
-    <hr>
-
-    <details class="details-popup display-inline-block float-right">
-        <summary class="float-right">Prior experiments</summary>
-
-        <h2>Experiment: fill form via JSON</h2>
-        <p><%= session[:email] %> you may fill out this form:</p>
-        <p>We are experimenting with ways to let our users gather information from <a href="http://localhost:9292">Agency B</a></p>
-        <form>
-            <fieldset>
-                <legend>Fill out this form</legend>
-                <label for="bird">Bird:</label><br>
-                <input id="bird" name="bird" /><br><br>
-                <label for="login">Logged in?</label><br>
-                <input id="login" name="login"/><br><br>
-                <a href="#" class="button" onclick="getData()">Fetch from Agency B</a>
-                <br><br><a href="#" class="button inactive" id="download" onclick="doDownload()">Download ⇓</a>
-            </fieldset>
-        </form>
-        Powered by <a href="http://localhost:9292/data">Agency B JSON</a>
-    </details>
 <% else %>
     <p>You must log in to apply for this job</p>
 

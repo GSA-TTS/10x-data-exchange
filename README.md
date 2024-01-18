@@ -6,31 +6,17 @@ Experiments in consumer-mediated exchange of data between agency partners
 * [Project folder on Google Drive](https://drive.google.com/drive/folders/1Xv6QOYEFwhMv2SfVHi9Rzl4XASAvnbXc)
 * [Agile project board](https://github.com/orgs/GSA-TTS/projects/31/)
 
-## Server pair experiment
-
-We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks. This experiment is the `server-pair` directory.
-
-### To run
-* Run `pip install -r requirements.txt`
-* And then start two servers:
-  * `flask --app a run -p 5001`
-  * `flask --app b run -p 5002`
-
-### For code quality
-* To lint, run `flake8`
-* To format, run `black .`
-
 ## Sinatra pair experiment
 
-Experimenting with Login.gov authentication by copying two sandbox apps,[identity-saml-sinatra](https://github.com/18F/identity-saml-sinatra) and [identity-oidc-sinatra](https://github.com/18F/identity-oidc-sinatra), and connecting them to each other. This experiment is the `sinatra-pair` directory.
+This experiment is demo'd in [the "Dog Jobs" video](https://gsa.enterprise.slack.com/files/U02H3PT5Y5S/F06DRN13FV5/dataexchangedemo1.mp4). The experiment uses Login.gov authentication by copying two sandbox apps,[identity-saml-sinatra](https://github.com/18F/identity-saml-sinatra) and [identity-oidc-sinatra](https://github.com/18F/identity-oidc-sinatra), connected to each other. This experiment is the `sinatra-pair` directory.
 
 ### To run
 
 You will need to run three servers:
 
   1. Login's [identity-idp](https://github.com/18F/identity-idp) project at [localhost:3000](http://localhost:3000/). Here's [how to run it](#setup-of-identity-idp).
-  2. The app in this repo's `a-saml` directory at [localhost:4567](http://localhost:4567/)
-  3. The app in this repo's `b-oidc` directory at [localhost:9292](http://localhost:9292/)
+  2. The app in this repo's `sinatra-pair/a-saml` directory at [localhost:4567](http://localhost:4567/)
+  3. The app in this repo's `sinatra-pair/b-oidc` directory at [localhost:9292](http://localhost:9292/)
 
 All three are started with:
 
@@ -56,3 +42,25 @@ The purpose of this is to allow-list params the Sinatra pair experiment needs. T
 ```
 Redirect uri redirect_uri does not match registered redirect_uri
 ```
+
+**Optional:** to make Login's handoff screens look right, replace placeholder names in the above file.
+* Replace `Test SAML SP` with `DogJobs.gov`
+* Replace `Example Sinatra App` with `IRS Dog Services`
+
+#### Mobile device testing
+
+To test the Sinatra pair experiment with a mobile device, you will need [these instructions](https://github.com/18F/identity-idp/blob/main/docs/mobile.md) for broadcasting Login.gov over your home or office WiFi. Adapt the technique to broadcast the other two servers, `a-saml` and `b-oidc`.
+
+## Old server pair experiment
+
+We are trying to learn if one of our ideas for data exchange is allowable in browsers, and if it runs into rules guarding against XSS attacks. This experiment is the `server-pair` directory.
+
+### To run
+* Run `pip install -r requirements.txt`
+* And then start two servers:
+  * `flask --app a run -p 5001`
+  * `flask --app b run -p 5002`
+
+### For code quality
+* To lint, run `flake8`
+* To format, run `black .`
