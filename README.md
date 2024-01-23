@@ -1,4 +1,4 @@
-# What we're up to
+# What we're up to (demo)
 
 Below is a demo of what data-sharing without a data-sharing-agreement might look like in practice. We're building the digital version of a user grabbing a document from one office and walking it down to the street to another. Hyperlinks mean that it's possible to get this done in a few clicks without actually transmitting docs or data directly from one agency to another.
 
