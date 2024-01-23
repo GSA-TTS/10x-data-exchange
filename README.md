@@ -1,6 +1,6 @@
 # What we're up to
 
-Below is a demo of what this might look like in practice. 
+Below is a demo of what data-sharing without a data-sharing-agreement might look like in practice. We're building the digital version of a user grabbing a document from one office and walking it down to the street to another. Hyperlinks mean that it's possible to get this done in a few clicks without actually transmitting docs or data directly from one agency to another.
 
 **For users,** we're trying to deliver an experience that feels like, "Do you want to get a doc from another agency? Just keep clicking "yes", after 6-10 clicks it'll be done and you'll be back where you started and ready to move on." 
 
