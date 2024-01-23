@@ -14,3 +14,5 @@ https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/08475d0c-0180-4e4f-9
 - The risk of failure is fairly low; this isn’t PII or mission-critical data transfer. Perhaps the users are federal employees rather than members of the public.
 
 Can you think of a situation like this? Are you the system owner for a system that’s involved in a situation like this? If so, please contact the 10x team working on this idea: mike.gintz@gsa.gov and jim.moffet@gsa.gov
+
+[Devs click here 🚀](https://github.com/GSA-TTS/10x-data-exchange/edit/main/DEV_SETUP.md)
