@@ -15,4 +15,4 @@ https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/08475d0c-0180-4e4f-9
 
 Can you think of a situation like this? Are you the system owner for a system that’s involved in a situation like this? If so, please contact the 10x team working on this idea: mike.gintz@gsa.gov and jim.moffet@gsa.gov
 
-[Devs click here 🚀](https://github.com/GSA-TTS/10x-data-exchange/edit/main/DEV_SETUP.md)
+[Devs click here 🚀](https://github.com/GSA-TTS/10x-data-exchange/blob/main/DEV_SETUP.md)
