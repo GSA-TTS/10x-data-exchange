@@ -26,6 +26,7 @@ GEM
     concurrent-ruby (1.2.2)
     dotenv (2.7.5)
     hashie (3.6.0)
+    htmlbeautifier (1.4.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     jmespath (1.6.1)
@@ -35,6 +36,7 @@ GEM
     minitest (5.19.0)
     mocha (1.7.0)
       metaclass (~> 0.0.1)
+    multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.0)
@@ -64,6 +66,12 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.4)
       tilt (~> 2.0)
+    sinatra-contrib (3.0.4)
+      multi_json
+      mustermann (~> 3.0)
+      rack-protection (= 3.0.4)
+      sinatra (= 3.0.4)
+      tilt (~> 2.0)
     test-unit (3.5.7)
       power_assert
     tilt (2.0.11)
@@ -79,14 +87,16 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.30)
   dotenv
   hashie
+  htmlbeautifier
   mocha
   pry
-  puma
+  puma (~> 6.4.2)
   rack-test (>= 2.0.0)
   rake
   rexml
   ruby-saml (>= 1.9.0)
   sinatra (>= 3.0.4)
+  sinatra-contrib
   test-unit
 
 RUBY VERSION

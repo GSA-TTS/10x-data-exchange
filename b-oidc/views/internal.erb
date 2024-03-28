@@ -4,24 +4,24 @@
     color: white;
     padding: 15px;
   }
-  h1 {
-    padding-left: 5vw;
-    font-weight: normal;
-    font-family: 'Times New Roman';
-    }
   main {padding-left: 10vw;}
+
   li {margin: 10px;}
+
   #green-check {
     visibility: hidden;
   }
+
   nav {
     position: absolute;
     right: 20px;
     top: 40px;
   }
+
   nav a {
     color: white;
   }
+
 </style>
 <div class="py1 bg-navy white fs-12p line-height-1 center">
   <img class="mr1 align-bottom" src="/vendor/uswds/img/us_flag_small.png" alt="U.S. flag" width="18" height="12">
@@ -34,14 +34,14 @@
     <a href="<%= logout_uri %>">Log out</a>
     </nav>
 </header>
-<main>
+<main class="grid-container usa-section padding-x-5">
     <% if session[:email] %>
-
-        <p>Welcome, <%= session[:email] %>. Follow these two steps:</p>
-        <h2>Step 1: <span id="green-check">✅</span></h2>
-        <a href="/assets/img/k9.pdf" onClick="showGreenCheck()" download>Download form K-9</a>
-        <h2>Step 2:</h2>
-        <a href="#" id="redirect">where you came from</a> and upload form K-9
+        <h1 class="usa-heading">Download IRS Form K-9</h1>
+        <p class="usa-intro">Welcome, <%= session[:email] %></p>
+        <h2 class="usa-heading">Step 1:</h2>
+        <a href="/assets/img/k9.pdf" download onClick="showGreenCheck()" class="usa-button">Download form K-9</a>
+        <h2 class="usa-heading">Step 2:</h2>
+        <a href="#" id="redirect" class="usa-button usa-button--outline"></a>
 
         <script>
             let urlParams = new URLSearchParams(window.location.search);
@@ -53,16 +53,17 @@
             redirectLink.innerHTML = "Return to " + redirectTxt;
 
             function showGreenCheck() {
-                document.getElementById("green-check").style.visibility = "visible";
+                var element = document.getElementById("redirect");
+                element.classList.remove("usa-button--outline");
                 redirectLink.href = redirectUrl + "?downloaded=true"
             }
 
         </script>
 
     <% else %>
-        <p>You must sign in</p>
+        <p class="usa-intro">You must sign in</p>
 
-        <form action="/auth/request" action="get">
+        <form action="/auth/request" action="get" class="usa-form">
             <input name="redirect" id="redirect" type="hidden" value="<%= params[:redirect] %>" />
             <input name="linktext" id="linktext" type="hidden" value="<%= params[:linktext] %>" />
             <button type="submit" class="usa-button usa-button--outline sign-in-bttn">

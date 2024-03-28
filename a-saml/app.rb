@@ -313,3 +313,5 @@ class RelyingParty < Sinatra::Base
 
   run! if app_file == $0
 end
+
+require 'sinatra/reloader' if RelyingParty.development?

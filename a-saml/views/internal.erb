@@ -1,0 +1,207 @@
+<style>
+  main {padding: 10px;}
+  .upload-success {
+    display: none;
+  }
+  .fetch-success {
+    display: none;
+  }
+  #submit-application {
+    background-color: silver;
+  }
+</style>
+<div class="usa-banner bg-primary-darker padding-1">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img class="usa-banner__header-flag" src="/vendor/uswds/img/us_flag_small.png" alt="U.S. flag">
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto">
+          <p class="usa-banner__header-text white">A DEMO website of the United States government</p>
+          <p class="usa-banner__header-action white" aria-hidden="true">Here’s how you know</p>
+        </div>
+        <button class="usa-accordion__button usa-banner__button"
+          aria-expanded="false" aria-controls="gov-banner">
+          <span class="usa-banner__button-text white">Here’s how you know</span>
+        </button>
+      </div>
+    </header>
+  </div>
+</div>
+
+<main class="grid-container usa-section padding-x-5">
+  <!-- <p>You are applying as <%= session[:email] %></p> -->
+  <h1 class="usa-heading">Job Opening: Dog who rescues cats</h1>
+  <% if session[:email] %>
+
+    <div class="usa-prose">
+      
+      <p>The U.S. Department of Dog Employment seeks a very good boy or girl to save cats from themselves.</p>
+      
+      <p>Required expertise:</p>
+
+      <ul class="usa-list">
+        <li>Experience engaging with felines in states of acute distress, with a focus on arboreal self-immobilization.</li>
+        <li>Positive certification of Focus Expert by Squirrel Distraction Board.</li>
+      </ul>
+
+      <p>Responsibilities:</p>
+
+      <ul class="usa-list">
+        <li>Provide paws-on leadership of rescue missions in a variety of settings.</li>
+        <li>Lie around doing nothing for the rest of the time.</li>
+      </ul>
+    </div>
+    
+    <h2 class="usa-heading">Required documentation: IRS form K-9 <span class="usa-checklist__item--checked" style="visibility:hidden" id="green-check">✅</span></h2>
+
+    <div class="usa-prose pre-fetch">
+      <p>If you don't have your form K-9, we can help you fetch it from IRS.gov:</p>
+    </div>
+    <div class="usa-prose fetch-success pre-upload">
+      <p>It looks like you successfully downloaded form K-9 from IRS.gov 🎉</p>
+    </div>
+      <form action="http://localhost:9292/internal/" method="get" class="usa-form">
+        <input name="redirect" type="hidden" value="http://localhost:4567/internal/" />
+        <input name="linktext" type="hidden" value="DogJobs.gov" />
+        <button type="submit" class="usa-button pre-fetch" id="fetch">
+          Fetch IRS form K-9 from IRS.gov
+        </button>
+        
+      </form>
+
+      <form class="usa-form pre-upload">
+        <legend class="usa-label pre-upload pre-fetch">If you have form K-9, you can upload it here:</legend>
+        <input type="file" id="k9" name="k9" class="usa-file-input" style="display: none;">
+        <label for="k9" class="usa-button pre-upload">Upload form K-9</label>
+        <a class="usa-label fetch-success pre-upload">I don't see form K-9 in my downloads folder</a>
+      </form>
+
+      <h3 class="upload-success margin-top-3">That was the last step! 🎉</h3>
+      
+      <form class="usa-form margin-top-3">
+        <button type="submit" class="usa-button" id="submit-application">
+          Submit Application
+        </button>
+      </form> 
+      
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr class="usa-divider">
+
+    <details class="usa-accordion__content usa-background-gray-5 padding-2">
+      <summary>Prior experiments</summary>
+      <h2>Experiment: fill form via JSON</h2>
+      <p><%= session[:email] %>, you may fill out this form:</p>
+      <p>We are experimenting with ways to let our users gather information from <a href="http://localhost:9292">Agency B</a></p>
+      <fieldset class="usa-fieldset">
+        <legend>Fill out this form</legend>
+        <label for="bird">Bird:</label><br>
+        <input id="bird" name="bird" class="usa-input"><br><br>
+        <label for="login">Logged in?</label><br>
+        <input id="login" name="login" class="usa-input"><br><br>
+        <button type="button" class="usa-button" onclick="getData()">Fetch from Agency B</button>
+        <button type="button" class="usa-button usa-button--unstyled" id="download" onclick="doDownload()">Download ⇓</button>
+      </fieldset>
+    </details>
+    <script>
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const downloaded = urlParams.get('downloaded')
+
+        if (downloaded == "true") {
+            document.getElementById("fetch").style.backgroundColor = "silver";
+            document.getElementById("green-check").style.visibility = "visible";
+
+            var el_post = document.querySelectorAll('.fetch-success');
+            for(var i = 0; i < el_post.length; i++) {
+                el_post[i].style.display = 'block';
+            }
+
+            var el_pre = document.querySelectorAll('.pre-fetch');
+            for(var i = 0; i < el_pre.length; i++) {
+                el_pre[i].style.display = 'none';
+            }
+
+        }
+
+        document.getElementById('k9').addEventListener('change', function() {
+          if (this.value) {
+
+            document.getElementById("submit-application").style.backgroundColor = "#005ea2";
+
+            var el_post = document.querySelectorAll('.upload-success');
+            for(var i = 0; i < el_post.length; i++) {
+                el_post[i].style.display = 'block';
+            }
+
+            var el_pre = document.querySelectorAll('.pre-upload');
+            for(var i = 0; i < el_pre.length; i++) {
+                el_pre[i].style.display = 'none';
+            }
+
+          } else {
+
+            var el_post = document.querySelectorAll('.upload-success');
+            for(var i = 0; i < el_post.length; i++) {
+                el_post[i].style.display = 'none';
+            }
+
+            var el_pre = document.querySelectorAll('.pre-upload');
+            for(var i = 0; i < el_pre.length; i++) {
+                el_pre[i].style.display = 'block';
+            }
+
+          }
+        });
+
+
+        function getData() {
+            let birdField = document.getElementById("bird");
+            let loginField = document.getElementById("login");
+            fetch("http://localhost:9292/data")
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    let birdData = data;
+                    let dlButton = document.getElementById("download");
+                    birdField.value = birdData.bird;
+                    loginField.value = birdData.login;
+                    dlButton.classList.remove("inactive");
+                })
+        }
+
+        function doDownload() {
+            let link = document.createElement("a");
+            let text = document.getElementById("bird").value;
+            let file = new File([text], "bird.txt", {
+                type: "text/plain",
+            })
+            let url = URL.createObjectURL(file);
+
+            link.href = url;
+            link.download = file.name;
+            document.body.appendChild(link);
+            link.click();
+
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+
+    </script>
+  <% else %>
+    <p>You must log in to apply for this job</p>
+    <form action="/login_get?aal=2&ial=1" method="GET" class="usa-form">
+      <button type="submit" class="usa-button usa-button--outline">
+        Log in
+      </button>
+    </form>
+  <% end %>
+</main>
