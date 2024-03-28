@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+		  "path": "a-saml"
+		},
+		{
+		  "path": "b-oidc"
+		}
+	  ],
+	"settings": {
+		"rubyLsp.formatter": "auto",
+		"rubyLsp.rubyVersionManager": "rbenv",
+		"editor.defaultFormatter": "elia.erb-formatter",
+		"rubyLsp.customRubyCommand": "rbenv local 3.1.4"
+	}
+}

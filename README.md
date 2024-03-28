@@ -36,7 +36,7 @@ Modify the file `config/service_providers.localdev.yml` to contain a URI that Lo
 ```
 In the part of the file configuring `urn:gov:gsa:openidconnect:sp:sinatra`
 
-You will have to run (or re-run) `make setup` after modifying this file.
+You will have to run (or re-run) `make setup` after modifying this file
 
 The purpose of this is to allow-list params the Sinatra pair experiment needs. This error indicates either the allow-listing or the params are incorrect:
 ```
