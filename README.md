@@ -1,8 +1,8 @@
 # What we're up to / Demo
 
-## Below is a demo of what data-sharing _without a data-sharing-agreement_ might look like in practice.
+## A simple way to help users navigate and transfer their data between government sites, without requiring agency-to-agency data-sharing.
 
-We're building the digital version of a user grabbing a document from one office and walking it down to the street to another. Our approach makes it possible to get this done online in a few clicks without actually transmitting any docs or data directly from one agency to another.
+We're building the digital version of a user grabbing a document from one office, receiving good directions, and walking it down to the street to different office. Our approach makes it possible to get this done online in a few clicks without prior knowledge of where the docs or data are stored, and without incurring the privacy and security costs of transmitting data directly from one agency to another.
 
 **For users:** We're trying to deliver an experience that feels like, "Do you need to get a doc from another agency? Just keep clicking "yes", and after 6-10 clicks it'll be done and you'll be back where you started and ready to move on." 
 
@@ -10,7 +10,7 @@ We're building the digital version of a user grabbing a document from one office
 
 https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/08475d0c-0180-4e4f-93f9-a33ea8a526ed
 
-## Here's what's new:
+## Here's what's new about it:
 
 <img width="918" alt="10x-DataX-data-model-draft" src="https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/4d58eeab-7067-46ce-8220-6cd451f5c34a">
 
