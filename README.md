@@ -1,4 +1,4 @@
-# What we're up to: Demo
+# What we're up to: A demo
 
 ## A simple way to help users navigate and transfer their data between government sites, without requiring agency-to-agency data-sharing.
 
