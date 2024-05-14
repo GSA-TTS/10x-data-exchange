@@ -6,7 +6,7 @@ We're building the digital version of a user grabbing a document from one office
 
 **For users:** We're trying to deliver an experience that feels like, "Do you need to get a doc from another agency? Just keep clicking "yes", and after 6-10 clicks it'll be done and you'll be back where you started and ready to move on." 
 
-**For agencies:** We aim to help agencies deliver this user experience, *without needing a data-sharing agreement*, and with minimal integration (adding links and url params to existing web pages).
+**For agencies:** We aim to help agencies deliver this user experience, *without needing a data-sharing agreement*, and with minimal integration—all an agency has to do is add links and url params to existing web pages.
 
 https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/08475d0c-0180-4e4f-93f9-a33ea8a526ed
 
