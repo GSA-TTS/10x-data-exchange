@@ -10,6 +10,11 @@ We're building the digital version of a user grabbing a document from one office
 
 https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/08475d0c-0180-4e4f-93f9-a33ea8a526ed
 
+## Here's what's new:
+
+<img width="918" alt="10x-DataX-data-model-draft" src="https://github.com/GSA-TTS/10x-data-exchange/assets/5996125/4d58eeab-7067-46ce-8220-6cd451f5c34a">
+
+
 ## How you can help:
 
 **We're looking for pilot partners to help test this approach.**
